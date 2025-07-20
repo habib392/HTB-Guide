@@ -244,10 +244,15 @@ Ismein data intercept karna mushkil hota hai kyun ke point to point secure hota 
 
 Har topology ka apna **network behavior hota hai**:
 
-* Tree mein root attack karo
-* Mesh mein data sniff karo
-* Hybrid mein weakest topology dhoondo
-* Point to point mein direct device attack karo
+* Bus mein attacker cable pe tap karke data sniff kar sakta hai.
+* Star mein attacker central device ko hijack kar ke sabka traffic control kar sakta hai.
+* Ring mein attacker data loop mein inject karke ya delay karke network jam kar sakta hai.
+* Daisy Chain mein attacker chain ka beech wala node control karke aage/peeche dono taraf ka data manipulate kar sakta hai.
+* Tree mein attacker root attack kar ky attack kr sakta hai.
+* Mesh mein attacker data sniff karky attack kr sakta hai.
+* Hybrid mein attacker weakest topology dhoond kr attack kr sakta hai.
+* Point to point mein attacker direct device pr attack kr sakta hai.
+
 
 
 
