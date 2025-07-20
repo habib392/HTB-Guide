@@ -1,8 +1,4 @@
-Zaroor Habib bhai! 👇 Yeh poora paragraph main teri zuban mein simple aur asaan Urdu mein explain kar raha hoon — root level tak samajhne ke liye:
-
----
-
-### 🔌 Networking Topologies — Teri Zuban Mein
+### 🔌 Networking Topologies 
 
 Jab computers ya devices ek dosray se connect hote hain kisi network mein, to uska jo physical ya logical design hota hai, usay **network topology** kehte hain. Simple shabdon mein, network topology yeh batata hai ke devices (jaise computer, server, switch, router waghera) kis tarah ek dosray se jude hue hain aur kaise data share karte hain.
 
