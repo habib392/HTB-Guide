@@ -56,6 +56,8 @@ Ghar, schools, offices — jahaan **central control aur monitoring chahiye**.
 **Hacker kya faida uthata hai?**
 Agar hacker **router ya central device** tak pahunch jaye, toh **pure network ka data monitor aur control** kar sakta hai. Sirf ek jagah hack karni hoti hai.
 
+![STAR TOPOLOGY](https://github.com/habib392/ImagesSS/blob/a6dfc2cb8909cbea8ed877783fe8568a61181245/topo_star.webp)
+
 ---
 
 ### ✅ 2. Bus Topology
@@ -102,6 +104,8 @@ Banking systems, offices jahan **data ko sequence mein process karna hota hai**.
 **Hacker kya faida uthata hai?**
 Agar hacker ek device compromise kar le, toh woh **ring ka data manipulate ya block** kar sakta hai. Agar ek device fail ho jaaye, pura ring ruk sakta hai.
 
+![RING TOPOLOGY](https://github.com/habib392/ImagesSS/blob/a6dfc2cb8909cbea8ed877783fe8568a61181245/topo_ring.webp)
+
 ---
 
 ### ✅ 4. Daisy Chain Topology
@@ -123,6 +127,8 @@ Automation systems mein, jese **CCTV cameras ya industrial control units**.
 
 **Hacker kya faida uthata hai?**
 Agar hacker beech mein ek device compromise kar le, toh woh **data ko rok bhi sakta hai ya modify** kar sakta hai. Chain tootne se communication band ho jaata hai.
+
+![DAISY CHAIN TOPOLOGY](https://github.com/habib392/ImagesSS/blob/a6dfc2cb8909cbea8ed877783fe8568a61181245/topo_daisy-chain.webp)
 
 ---
 
@@ -149,6 +155,8 @@ Socho aik **school principal** hai, uske neechay **vice principals**, unke neech
 **Hacker kya faida utha sakta hai?**
 Hacker agar root ya kisi major **branch device** ko access kar le to woh **pure tree** ko control kar sakta hai. Jese agar principal ke office ka access mil jaaye, woh sabko instructions bhej sakta hai (malicious code ya data leak).
 
+![TREE TOPOLOGY](https://github.com/habib392/ImagesSS/blob/a6dfc2cb8909cbea8ed877783fe8568a61181245/topo_tree.webp)
+
 ---
 
 ### ✅ **6. Mesh Topology**
@@ -173,6 +181,8 @@ Socho aik **dostoon ka group chat** jahan har banda har kisi ko alag alag msg ka
 
 **Hacker kya faida utha sakta hai?**
 Mesh ka faida yeh hota hai ke data multiple paths se jata hai — lekin **hacker agar kisi ek node ka data sniff karle**, toh woh **multiple routes se traffic capture** kar sakta hai, analysis zyada powerful ban jaata hai.
+
+![MESH TOPOLOGY](https://github.com/habib392/ImagesSS/blob/a6dfc2cb8909cbea8ed877783fe8568a61181245/topo_mesh.webp)
 
 ---
 
@@ -199,6 +209,8 @@ Socho aik **hospital** jahan kuchh departments strictly follow karte hain rules 
 **Hacker kya faida utha sakta hai?**
 Hybrid mein hacker **identify kar sakta hai weakest topology wala part**, jaise agar mesh secure hai but star weak hai — toh star ke through attack karta hai aur baqi parts ko affect karta hai.
 
+![HYBRID TOPOLOGY](https://github.com/habib392/ImagesSS/blob/a6dfc2cb8909cbea8ed877783fe8568a61181245/topo_hybrid.webp)
+
 ---
 
 ### ✅ **8. Point to Point Topology**
@@ -223,6 +235,8 @@ Socho aik **face-to-face baat** 2 logon ke beech — koi teesra nahi sun sakta.
 
 **Hacker kya faida utha sakta hai?**
 Ismein data intercept karna mushkil hota hai kyun ke point to point secure hota hai — lekin **agar hacker in dono devices mein se ek compromise kar le**, toh **pure communication ka control mil jaata hai**.
+
+![P2P TOPOLOGY](https://github.com/habib392/ImagesSS/blob/a6dfc2cb8909cbea8ed877783fe8568a61181245/topo_p2p.webp)
 
 ---
 
