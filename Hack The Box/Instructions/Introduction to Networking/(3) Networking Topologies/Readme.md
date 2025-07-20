@@ -78,6 +78,8 @@ Chhoti networks ya **older LAN systems** mein. Ya jahan ek shared medium kaafi h
 **Hacker kya faida uthata hai?**
 Agar hacker kisi ek wire pe **tapping kar le** ya usi bus pe jud jaye, toh woh **sab devices ka data sniff** kar sakta hai bina kisi ke pata chalay.
 
+![BUS TOPOLOGY](https://github.com/habib392/ImagesSS/blob/0a25ba5b1fe7dd461eeaf4e254c351403f6275ca/topo_bus.webp)
+
 ---
 
 ### ✅ 3. Ring Topology
