@@ -93,12 +93,16 @@ ssh user@ip_address
 
 ---
 
-### 🔍 Summary (Seedhi Baat)
+### 🔍 Summary
 
 ✅ Forward Proxy hum use karte hain (BurpSuite, FoxyProxy)
+
 ✅ Transparent Proxy hidden hoti hai, Non-transparent user sets manually
+
 ❌ Reverse Proxy server ka kaam hai, hum dekh nahi saktay
+
 ✅ Inspect tool se browser code analyze hota hai
+
 ✅ SSH remote access ke liye hota hai (agar shell mil jaye)
 
 ---
