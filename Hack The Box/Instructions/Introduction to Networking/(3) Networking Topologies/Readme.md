@@ -27,15 +27,6 @@ Kisi room mein computer gol circle mein rakh diye jaayein, iska matlab yeh nahi 
 
 ---
 
-Bhai Habib, tu ne bohot perfect structure diya hai – is tarah har topology ka use, example aur hacker ka angle properly samajh aayega. Chalo pehle **aadhi topologies** ka answer deta hoon jese tu ne kaha. Inmein yeh 4 topologies cover kar raha hoon:
-
-1. **Star Topology**
-2. **Bus Topology**
-3. **Ring Topology**
-4. **Daisy Chain Topology**
-
----
-
 ### ✅ 1. Star Topology
 
 **Topology kya hai?**
