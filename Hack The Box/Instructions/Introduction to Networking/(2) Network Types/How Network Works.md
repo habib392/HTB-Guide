@@ -16,6 +16,6 @@ Aur bhai yeh sara data transfer **TCP/IP ya UDP protocols** ki madad se hota hai
 
 ---
 
-### 💡 Example Line Jo Tu Use Kar Sakta Hai:
+### 💡 Example:
 
 > "Internet ka kaam simple hai bhai — mera router request bhejta hai, ISP usko public IP deta hai, phir woh request WAN ke zariye Facebook ke server tak jaati hai. Aur yeh poora global system jo manage karta hai, usse kehte hain GAN."
