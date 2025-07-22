@@ -1,6 +1,6 @@
 #### How Facebook.com website open from my Mobile Complete Explanation With TCP/IP Model
 
-1. Application layer yeh btata hai ky kis application sy mane Facebook.com access krny ki koshish ki jaisy yahan mane chrome sy Facebook.com open kiya agr main Facebook app sy on krta too mera application layer facebook hota kiun ky yahan sy hi request gayi hai meri 
+- Application layer yeh btata hai ky kis application sy mane Facebook.com access krny ki koshish ki jaisy yahan mane chrome sy Facebook.com open kiya agr main Facebook app sy on krta too mera application layer facebook hota kiun ky yahan sy hi request gayi hai meri 
 
 Isky baad aata hai transport layer matlab meri jo request hai jo Facebook ky server tk gyi hai woh kis tareeqay sy travel kr ky gyi hai or yeh traveling packets ky zariye hoti hai choty choty hazaron packets mil kr aik request generate krty hain or phir server tk bhejty hain 
 
