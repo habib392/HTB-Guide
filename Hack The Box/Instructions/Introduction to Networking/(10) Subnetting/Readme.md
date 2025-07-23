@@ -40,78 +40,96 @@ Subnet mask batata hai:
 
 ---
 
-### 🔹 **/26 ka Matlab Kya Hai?**
 
-`/26` matlab **first 26 bits fix hain**, aur baaki **6 bits host ke liye available** hain.
-Toh 2^6 = **64 IPs** total milengi.
+| Subnet No. | Network Address  | First Host       | Last Host        | Broadcast Address | CIDR                |
+| ---------- | ---------------- | ---------------- | ---------------- | ----------------- | ------------------- |
+| 1          | `192.168.12.128` | `192.168.12.129` | `192.168.12.142` | `192.168.12.143`  | `192.168.12.128/28` |
+| 2          | `192.168.12.144` | `192.168.12.145` | `192.168.12.158` | `192.168.12.159`  | `192.168.12.144/28` |
+| 3          | `192.168.12.160` | `192.168.12.161` | `192.168.12.174` | `192.168.12.175`  | `192.168.12.160/28` |
+| 4          | `192.168.12.176` | `192.168.12.177` | `192.168.12.190` | `192.168.12.191`  | `192.168.12.176/28` |
 
-Lekin:
-
-* 1 IP Network Address ke liye
-* 1 IP Broadcast ke liye
-
-👉 **Total valid hosts = 62**
+🧠 Har subnet mein **16 IPs** hoti hain, CIDR `/28` ka matlab hota hai ke **4 bits host ke liye available** hain (2^4 = 16).
 
 ---
 
-### 🔹 **Subnet ke Important Addresses:**
+## 🔹 **Mental Subnetting — Fast Sochne ka Tareeqa**
 
-* **Network Address**: `192.168.12.128`
-* **Broadcast Address**: `192.168.12.191`
-* **First Host**: `192.168.12.129`
-* **Last Host**: `192.168.12.190`
-* **Total Hosts**: `62`
+### Step 1: **Identify Changing Octet**
 
----
+IP address ke 4 hissey hote hain:
 
-### 🔹 **Gateway ka Role:**
+* 1st Octet: `/8`
+* 2nd Octet: `/16`
+* 3rd Octet: `/24`
+* 4th Octet: `/32`
 
-Agar koi device dusre subnet mein data bhejna chahe, toh woh **default gateway** ke through jayega.
-Aur agar source aur destination dono same subnet mein hon, toh **direct bhej diya jata hai**.
+Jaise agar kisi IP ka subnet `/25` hai, toh iska matlab hai ke **sirf 4th octet change ho sakta hai**, baaki sab fix hain.
 
----
-
-### 🔚 **Short Recap:**
-
-Subnetting ka matlab hota hai **IP range ko logical parts mein divide karna**.
-Har subnet ka apna network address, range of hosts, aur ek broadcast address hota hai.
-Subnet mask aur CIDR batate hain ke kis hisse ko hum change kar sakte hain aur kis ko nahi.
+**Example:**
+Network: `192.168.1.1/25`
+Toh IP: `192.168.2.4` same network mein **nahi** hai, kyunke `2` third octet mein change aa gaya.
 
 ---
 
-### 📘 Ab Tere Liye 5 MCQs:
+### Step 2: **Remainder (Modulo) Trick**
 
-1. What does a `/26` CIDR mean?
-   A) 26 IPs total
-   B) 26 bits are for the host
-   C) 26 bits are for the network
-   D) 26 subnets exist
+Subnet bits ka remainder nikaal: `(CIDR % 8)`
+Jaise `/25 % 8 = 1`
 
-2. How many **valid hosts** are available in a `/26` subnet?
-   A) 64
-   B) 62
-   C) 60
-   D) 32
+Ab is 1 se tu pata karega ke host part mein kitni IPs banengi:
 
-3. Which of the following is the **network address** for `192.168.12.160/26`?
-   A) `192.168.12.128`
-   B) `192.168.12.160`
-   C) `192.168.12.192`
-   D) `192.168.12.0`
+Formula: `2^(8 - remainder)`
 
-4. Why is subnetting used?
-   A) To increase internet speed
-   B) To divide a big network into smaller logical parts
-   C) To hide IP addresses
-   D) To assign MAC addresses
+So:
 
-5. Which address delivers data to **all devices in the subnet**?
-   A) Network address
-   B) First host
-   C) Last host
-   D) Broadcast address
+* `2^(8 - 1) = 2^7 = 128 IPs`
+* Usmein se 1 Network + 1 Broadcast = **126 usable**
 
 ---
 
-Tayyari kar lo in MCQs ki — agar jawab dena chaho toh bhej dena, check kar dun 😎
-Aur haan, koi angrezi word galat use kiya ho toh zaroor btao.
+### 🔢 **Yeh Table Yaad Rakh:**
+
+| Remainder | IPs | Math | Divide 256 by...    |
+| --------- | --- | ---- | ------------------- |
+| 0         | 256 | 2^8  | 256                 |
+| 1         | 128 | 2^7  | 256 ÷ 2             |
+| 2         | 64  | 2^6  | 256 ÷ 2 ÷ 2         |
+| 3         | 32  | 2^5  | 256 ÷ 2 ÷ 2 ÷ 2     |
+| 4         | 16  | 2^4  | 256 ÷ 2 ÷ 2 ÷ 2 ÷ 2 |
+| 5         | 8   | 2^3  | 256 ÷ 2^5           |
+| 6         | 4   | 2^2  | 256 ÷ 2^6           |
+| 7         | 2   | 2^1  | 256 ÷ 2^7           |
+
+---
+
+### 💡 **Important: 0 ka matlab NULL nahi hota**
+
+Jab tu subnet bana raha hota hai toh `0` bhi **valid value** hoti hai.
+
+### Example:
+
+`/25` means 128 IPs:
+
+* First subnet: `192.168.1.0 - 192.168.1.127`
+
+  * Network: `192.168.1.0`
+  * Broadcast: `192.168.1.127`
+  * **Usable IPs: `192.168.1.1 - 192.168.1.126`**
+
+* Second subnet: `192.168.1.128 - 192.168.1.255`
+
+  * Network: `192.168.1.128`
+  * Broadcast: `192.168.1.255`
+  * **Usable IPs: `192.168.1.129 - 192.168.1.254`**
+
+---
+
+## 🔚 **Shortcut Samajh le:**
+
+* CIDR `%` 8 se remainder nikaal
+* 256 ko `2^remainder` se divide kar
+* Har subnet ka size mil jaega
+* First IP = Network + 1
+* Last IP = Broadcast - 1
+
+---
