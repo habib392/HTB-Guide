@@ -126,3 +126,88 @@ Yeh IPs Internet pe nahi chaltin — sirf Local Network mein use hoti hain.
 aur **IP Classes** tere network recon ka map samajhne mein madad karti hain.
 
 ---
+
+## 📌 Basic Terms:
+
+### 1. **IP Address**
+
+Har device ka unique address hota hai network pe. Jaise ghar ka address.
+
+* IP do tarah ke hote hain: **IPv4** (like 192.168.1.1) aur **IPv6** (naya version, lamba hota hai).
+
+### 2. **Public IP vs Private IP**
+
+* **Public IP:** Jo internet pe dikhta hai. Router ko milta hai.
+* **Private IP:** Jo andar ghar ke devices ko milta hai. Jaise mobile, laptop waghera.
+
+**Private IP Ranges (IPv4):**
+
+* 10.0.0.0 – 10.255.255.255
+* 172.16.0.0 – 172.31.255.255
+* 192.168.0.0 – 192.168.255.255
+
+## 📌 Subnet Mask kya hota hai?
+
+Subnet mask batata hai ke IP address ka kaunsa hissa **network** ka hai aur kaunsa **host** ka.
+Example:
+
+* 255.255.255.0 ka matlab hai ke pehle 3 octets network ke hain, aur last octet host ke.
+* CIDR notation mein: `/24`
+
+### 🎯 Octet Example:
+
+* IP: 192.168.1.5
+* Subnet: 255.255.255.0 → /24
+* Iska matlab: ek network mein 256 addresses hain jisme se 254 usable hain (1 network address aur 1 broadcast address chhor ke).
+
+## 📌 Subnetting ka faida:
+
+1. Network ko chhoti chhoti parts mein divide kar sakte ho.
+2. Har part ka alag logical group ban jata hai (jaise Admin ka network, HR ka network, etc).
+3. Security badhti hai – ek subnet dusre ka data nahi chura sakta easily.
+
+## 📌 Subnet Mask se kya samajh aata hai:
+
+Agar subnet mask ho `255.255.255.0`:
+
+* To har network mein 256 IPs (254 usable) hon gi.
+* Agar ho `255.255.255.128` to 128 IPs (126 usable).
+* CIDR Notation jese `/25`, `/26` ye batate hain kitne hosts aur networks hain.
+
+### 🎯 Penetration Testing Angle:
+
+1. **Network Discovery** – Nmap se subnet pata chalta hai, scan karke sab hosts milte hain.
+2. **Pivoting** – Agar ek subnet hack ho jaye to dusre subnet mein jump karne ke liye yeh understanding zaroori hai.
+3. **Firewall Bypass** – Agar IP/subnet ki knowledge ho to targeted attack asaan hota hai.
+
+---
+
+## 🔍 Real Life Example:
+
+Habib ne apne mobile se Wi-Fi connect kiya, IP mila `192.168.10.5` aur subnet `255.255.255.0`
+
+* Iska matlab hai: mobile ka network hai `192.168.10.0/24`
+* Matlab ye 254 devices ko handle kar sakta hai.
+* Router usually `192.168.10.1` hota hai.
+
+## 🧠 Summary:
+
+| Concept         | Example     | CIDR | Hosts (usable) |
+| --------------- | ----------- | ---- | -------------- |
+| Class C         | 192.168.1.0 | /24  | 254            |
+| Half Class C    | 192.168.1.0 | /25  | 126            |
+| Quarter Class C | 192.168.1.0 | /26  | 62             |
+
+Subnet mask dekh ke yeh andaza lag jata hai ke network kitna bara hai, kitne log connect ho sakte hain aur penetration testing mein konsa scope lena chahiye.
+
+## ✅ Ab kya yaad rakhna hai?
+
+* Public vs Private IPs ke range yaad rakho
+* CIDR notation jaise /24, /25 ka matlab samjho
+* Subnet mask se network size samajhne ki aadat dalo
+* Har IP ke saath subnet mask ya CIDR dekhna seekho
+* Yeh sab Nmap, netdiscover, aur firewall evasion mein kaam aayega
+
+---
+
+
