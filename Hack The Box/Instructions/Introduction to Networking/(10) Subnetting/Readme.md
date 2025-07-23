@@ -126,31 +126,84 @@ Lekin ab mostly **CIDR** hi use hota hai.
 
 ---
 
-Agar ab tujh se interview mein koi bhi sawal poocha jaaye subnetting ya IPs se related — to tu araam se samjha sakta hai.
+## ✅ Step-by-Step Tarika: `/26` mein kitni IP addresses hain
+
+### Step 1: Total bits in IPv4 address
+
+IPv4 address = **32 bits**
+
+### Step 2: /26 ka matlab?
+
+`/26` ka matlab:
+
+* 26 bits = **Network portion**
+* Baqi `32 - 26 = 6 bits` = **Host portion**
+
+### Step 3: Formula lagao
+
+👉 IPs calculate karne ka formula:
+
+```
+2^host_bits = total IPs
+```
+
+`2^6 = 64 IP addresses`
+➡️ Iska matlab: **/26 subnet mein 64 IPs total available hoti hain**
 
 ---
 
-**Next Step:**
-Chahie to main in sab ko aik proper **GitHub note style** mein likh deta hoon teri zuban mein — bas keh dena.
-Ya chahie to main 5 MCQs bhi bana deta hoon practice ke liye.
+## ❗Important: Usable IPs kitni hoti hain?
 
-Batao ab kya chahie?
+Lekin 64 mein se:
 
+* 1 IP = Network address (pehla IP)
+* 1 IP = Broadcast address (last IP)
 
----
-
-### 🔢 **Yeh Table Yaad Rakh:**
-
-| Remainder | IPs | Math | Divide 256 by...    |
-| --------- | --- | ---- | ------------------- |
-| 0         | 256 | 2^8  | 256                 |
-| 1         | 128 | 2^7  | 256 ÷ 2             |
-| 2         | 64  | 2^6  | 256 ÷ 2 ÷ 2         |
-| 3         | 32  | 2^5  | 256 ÷ 2 ÷ 2 ÷ 2     |
-| 4         | 16  | 2^4  | 256 ÷ 2 ÷ 2 ÷ 2 ÷ 2 |
-| 5         | 8   | 2^3  | 256 ÷ 2^5           |
-| 6         | 4   | 2^2  | 256 ÷ 2^6           |
-| 7         | 2   | 2^1  | 256 ÷ 2^7           |
+**Usable = 64 - 2 = 62 IPs**
 
 ---
 
+### 🧠 IPv6 mein:
+
+* Total bits = **128**
+* Agar likha ho: `2001:0db8::/64`
+  → iska matlab: **64 bits = Network**, baqi \`128 - 64 = 64 bits = Hosts\*\*
+
+### Ab formula:
+
+```
+2^64 = Host IPs in subnet
+```
+
+Yeh number bohot bara hota hai — **18,446,744,073,709,551,616** usable IPs 😱
+
+
+### ⚡ Extra Tip for PenTest:
+
+* IPv6 itna bara hota hai ke brute force scanning impossible hai
+* Isliye attackers mostly IPv4 pe focus karte hain
+* IPv6 mein attacker ko pehle **active device ka exact address ya MAC-based hint chahiye hota hai**
+
+---
+
+## ✅ **Q: Recon mein CIDR kaise milta hai? Kya yeh public hota hai?**
+
+**Jawab:**
+Nahi, har jagah IP ke sath `/26`, `/24` waqaira **publicly available nahi hota**.
+CIDR notation mostly **aapko recon ya scanning** karne ke baad milta hai.
+
+### 🔎 Example:
+
+* Jab aap kisi **company ka domain scan** karte ho (`example.com`)
+* Aapko `IP address` milta hai e.g., `192.168.1.101`
+* Lekin yeh nahi batata ke yeh IP **kis range (subnet)** ka part hai
+
+#### Toh CIDR kaise milta hai?
+
+* **Reverse DNS Lookup**
+* **Whois Lookup**
+* **Shodan.io**, **Censys.io** tools
+* **Nmap Scan** (`nmap -sn 192.168.1.0/24`)
+* Ya **network admin tools** jaise Netdiscover, arp-scan
+
+---
