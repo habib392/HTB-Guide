@@ -94,8 +94,6 @@ Agar subnetting ghalat ho to attacker ko **IP conflicts, unauthenticated access*
 
 ---
 
-## 8. **Aur Important Questions:**
-
 ### 🔸 **Private IP kya hai?**
 
 Local use ke liye IPs — internet par directly access nahi hoti.
