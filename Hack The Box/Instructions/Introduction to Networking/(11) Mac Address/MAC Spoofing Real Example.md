@@ -1,28 +1,26 @@
 ## 🏡 Scenario:
 
-* Tum **mamo ke ghar** jaate ho
-* Unka WiFi router sirf **known MAC addresses** ko hi internet deta hai (MAC filtering on hai)
-* Tumhara **laptop Kali Linux wala hai**
-* Tum connect karna chahte ho bina unse password liye
+* Tum **mamo ke ghar** jaate ho.
+* Unka WiFi router sirf **known MAC addresses** ko internet deta hai (MAC filtering on hai).
+* Tumhara **laptop Kali Linux wala hai**.
+* Tum connect karna chahte ho bina unse password liye.
 
 ---
 
-## 🔐 Pehle Samajh Lo — MAC Filtering Kya Hoti Hai?
+## 🔐 Pehle Samajh Lo — MAC Filtering Kya Hai?
 
-Router mein feature hota hai jisko **MAC address filtering** kehte hain:
+Router mein ek feature hota hai jisko **MAC address filtering** kehte hain:
 
-> “Sirf unhi devices ko internet mile jo mujhe pehle se maloom hain (unke MAC addresses whitelist mein hain).”
-
-Lekin...
+> “Sirf unhi devices ko internet milega jo mere whitelist mein hain (unke MAC addresses mujhe pehle se pata hain).”
 
 ---
 
-## 🧠 Real Life Attack Flow (MAC Spoofing se bypass)
+## 🧠 Real Life Attack Flow (MAC Spoofing se Bypass)
 
-### 🔧 Step 1: Sniff karo — kisi connected device ka MAC uthao
+### 🔧 Step 1: Sniff Karo — Kisi Connected Device ka MAC Uthao
 
-1. Kali Linux on karo
-2. Terminal khol ke yeh command do:
+1. Kali Linux start karo.
+2. Terminal kholo aur yeh commands daalo:
 
 ```bash
 sudo airmon-ng start wlan0
@@ -30,15 +28,14 @@ sudo airodump-ng wlan0mon
 ```
 
 ➡ Yeh tumhe dikhayega:
+* Available WiFi networks.
+* Har network pe kaunse devices connected hain (Client MAC addresses).
 
-* Kaunse WiFi networks hain
-* Kis MAC pe kaun connected hai (Client MACs)
-
-📌 **Pick karo kisi aik connected device ka MAC** (jaise tumhare mamo ka mobile)
+📌 **Kisi ek connected device ka MAC address choose karo** (jaise mamo ka mobile).
 
 ---
 
-### 🌀 Step 2: Apna MAC us MAC se replace karo
+### 🌀 Step 2: Apna MAC Address Uske MAC se Replace Karo
 
 ```bash
 sudo ifconfig wlan0 down
@@ -46,49 +43,46 @@ sudo macchanger -m <mamo-ka-MAC> wlan0
 sudo ifconfig wlan0 up
 ```
 
-➡ Ab router sochega **yeh wohi purani device hai** jo pehle se allowed thi
+➡ Ab router sochega ke tumhari device wohi hai jo pehle se whitelist mein hai.
 
 ---
 
-### 📶 Step 3: WiFi se Connect karo
+### 📶 Step 3: WiFi se Connect Karo
 
-Ab tum `Network Manager` ya `nmcli` se router ka naam likh ke connect karo:
+Ab `Network Manager` ya `nmcli` se WiFi se connect karo:
 
 ```bash
-nmcli dev wifi connect <SSID-Name> password <WiFi-Password> iface wlan0
+nmcli dev wifi connect <SSID-Name> password <WiFi-Password> ifname wlan0
 ```
 
-➡ Agar password nahi pata to tumhe **still handshake crack karna hoga** (ya phir WPS vulnerability search karni hogi)
+➡ Agar password nahi pata, to:
+* Tumhe **WPA handshake capture karna hoga** aur usay crack karna hoga.
+* Ya phir **WPS vulnerability** check karni hogi.
 
 ---
 
-## 🔥 Important Cheez:
+## 🔥 Zaroori Baat:
 
-MAC spoofing sirf **MAC filtering bypass** karta hai, lekin agar **WiFi password protected hai**, to:
+MAC spoofing sirf **MAC filtering ko bypass** karta hai. Agar WiFi **password protected** hai, to:
+* Tumhe **password chahiye** hoga.
+* Ya phir **WPA handshake sniff karke** brute-force ya dictionary attack karna hoga.
 
-* Tumhe **password bhi chahiye**
-* Ya tumhe **WPA handshake sniff karke** brute-force ya dictionary attack karna padega
-
-Agar router pe **Open Network + MAC filtering** hai, tab tum asaani se spoofing se connect ho jaoge.
+Agar router **open network** hai aur sirf MAC filtering on hai, to MAC spoofing se asaani se connect ho jaoge.
 
 ---
 
-## 🤖 Real World Tip (Penetration Testing Point of View):
+## 🤖 Real World Tip (Penetration Testing Ke Liye):
 
-Yehi method penetration testers use karte hain:
-
-* Kisi client ka MAC address spoof karke
-* Network pe silently enter karne ke liye
-* Fir Wireshark, Ettercap, etc. se sniffing aur MITM attacks karte hain
+Penetration testers yehi method use karte hain:
+* Kisi client ka MAC address spoof karke network mein dakhil hona.
+* Phir tools jaise Wireshark ya Ettercap se sniffing ya MITM attacks karna.
 
 ---
 
 ## 🧠 Final Samajh:
 
 | Condition                      | Result                                 |
-| ------------------------------ | -------------------------------------- |
-| MAC Filtering ON, Password OFF | ✅ MAC spoofing = Internet access       |
-| MAC Filtering ON, Password ON  | ❌ Password chahiye ya crack karna hoga |
-| MAC Filtering OFF, Password ON | ✅ Agar password pata ho                |
-
----
+|--------------------------------|----------------------------------------|
+| MAC Filtering ON, Password OFF | ✅ MAC Spoofing = Internet Access      |
+| MAC Filtering ON, Password ON  | ❌ Password Chahiye ya Crack Karna Hoga |
+| MAC Filtering OFF, Password ON | ✅ Agar Password Pata Hai              |
