@@ -1,4 +1,4 @@
-# 📒 **MAC Address, ARP Spoofing aur Network Concepts – Notes in Simple Urdu**
+# 📒 **MAC Address, ARP Spoofing aur Network Concepts**
 
 ---
 
