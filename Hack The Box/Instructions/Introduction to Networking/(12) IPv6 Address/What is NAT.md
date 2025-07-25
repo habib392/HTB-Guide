@@ -18,6 +18,8 @@ lekin bahar jaake (Internet par) sab **ek hi naam** use kartay hain — ghar ka 
 ### Real Life Example
 Router mujy apna private Ip Address address deta hai jo real Ip Address hota hai too phir agr mujy koi website access krni hoo ya internet use krna hoo too phir main ius sy request krta hoon ky mujy aik public ip doo phir router mujy public ip address deta hai jo real Ip Address nhi hota fake hota hai
 
+---
+
 ### 🛡️ **Security Angle (Penetration Testing Tip):**
 
 Jab koi **attacker tera public IPv4 address** jaanta hai, magar **tera device NAT ke peechay chhupa hua hai**,
@@ -48,18 +50,4 @@ Agar woh NAT ke peechay hai to tu us tak direct **nahi** ja sakta jab tak:
 
 ---
 
-Agar yeh samajh aagaya ho to bataa — warna aur easy bana ke batata hoon.
-Akhri line yaad rakh:
-
-> **"NAT ek mask hai — jo tera asli private IP duniya se chhupa ke rakhta hai."**
-
-Chal ab mujhe yeh bataa:
-**Kya NAT hone se har device ki alag public IP hoti hai ya ek hi hoti hai?**
-
-🧠 **Options (MCQs):**
-
-1. Har device ki apni public IP hoti hai
-2. NAT ke under sab devices ek hi public IP use karte hain
-3. NAT IP addresses ko encrypt karta hai
-4. NAT sirf download speed improve karta hai
-5. NAT sirf IPv6 networks mein use hota hai
+**"NAT ek mask hai — jo tera asli private IP duniya se chhupa ke rakhta hai."**
