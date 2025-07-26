@@ -1,5 +1,3 @@
-- SMTP, HTTP, aur SMB Notes
-
 ## **SMTP (Simple Mail Transfer Protocol)**
 
 ### **Kya Hai?**
