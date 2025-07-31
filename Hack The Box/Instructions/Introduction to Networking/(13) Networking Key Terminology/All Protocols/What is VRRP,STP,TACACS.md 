@@ -1,4 +1,4 @@
-### **1. VRRP (Virtual Router Redundancy Protocol)**
+s### **1. VRRP (Virtual Router Redundancy Protocol)**
 
 #### **Kya Hai?**
 VRRP ek protocol hai jo network mein **redundancy** deta hai, yani agar ek router fail ho jaye, to doosra router automatically kaam shuru kar deta hai. Yeh HSRP jaisa hai, lekin open standard hai, isliye Cisco aur non-Cisco devices dono pe chalta hai. Yeh ek “backup plan” jaisa hai jo virtual IP address banata hai.
