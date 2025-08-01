@@ -9,8 +9,6 @@
 - **Example**: RIP cycle jaisa hai jo turns count karta hai. OSPF Google Maps jaisa hai jo road quality aur traffic dekhta hai.
 
 ## OSPF Ki Topology
-Maine ek topology banayi thi jo OSPF ka kaam dikhati hai:
-
 ```
     🔳R4 (10Mbps) ➡️ 🔳R5 (100Mbps) 
 ↗️                           ↘️
