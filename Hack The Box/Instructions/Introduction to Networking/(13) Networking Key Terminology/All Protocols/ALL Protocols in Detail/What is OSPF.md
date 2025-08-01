@@ -132,20 +132,3 @@ Router(config-router)# exit
 ```
 
 **Example**: Yeh commands office ya building ke routers ko OSPF se sync karte hain.
-
-## Agla Step
-- **Practice**: GNS3 mein OSPF configure karo.
-- **Packet Analysis**: Wireshark se OSPF packets dekho.
-- **Attacks**: Scapy se fake LSAs test karo.
-- **BGP Seekho**: Internet routing ke liye BGP next hai.
-
-
-
----
-
-### Note Explanation
-Habib bhai, yeh note bilkul teri zuban mein hai aur maine sirf **main points** rakhe hain:
-- Teri di hui topology aur examples (office aur building).
-- OSPF ke core concepts (LSAs, LSDB, areas, ABR).
-- Penetration testing ke key points aur tools.
-- Configurations tere scenarios ke hisaab se.
