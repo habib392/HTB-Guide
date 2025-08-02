@@ -1,7 +1,7 @@
 # Routing Information Protocol (RIP)
 
 ## RIP Kya Hai?
-Main ne seekha ke **Routing Information Protocol (RIP)** ek **dynamic routing protocol** hai jo chhote networks mein routers ke darmiyan data packets ke raste (routes) decide karta hai. Yeh ek **open standard protocol** hai, yani yeh har company ke routers (Cisco, Juniper, etc.) ke saath kaam kar sakta hai. RIP ka kaam hai ke data packets ko sabse kam **hops** (routers ke darmiyan jumps) wale raste se bheje taake data jaldi apni manzil tak pohnche.
+**Routing Information Protocol (RIP)** ek **dynamic routing protocol** hai jo chhote networks mein routers ke darmiyan data packets ke raste (routes) decide karta hai. Yeh ek **open standard protocol** hai, yani yeh har company ke routers (Cisco, Juniper, etc.) ke saath kaam kar sakta hai. RIP ka kaam hai ke data packets ko sabse kam **hops** (routers ke darmiyan jumps) wale raste se bheje taake data jaldi apni manzil tak pohnche.
 
 ### Dynamic vs Static Routing
 Mujhe pehle nahi pata tha ke dynamic aur static routing mein kya farq hai, lekin ab clear hai:
