@@ -1,9 +1,11 @@
-**Nmap kya hai?**  
+# Introduction to Nmap
+
+## **Nmap kya hai?**  
 Nmap (Network Mapper) ek free tool hai jo networks ko scan karta hai. Ye C, C++, Python, aur Lua mein bana hai. Is se tum ye pata laga sakte ho ke network mein kaun se devices (hosts) active hain, un pe kaun se services aur apps chal rahe hain (naam aur version ke saath), aur kon sa operating system (OS) chal raha hai. Saath hi, ye firewall, packet filters, ya intrusion detection systems (IDS) ke settings bhi check kar sakta hai.
 
 ---
 
-**Nmap ka use kahan hota hai?**  
+#### **Nmap ka use kahan hota hai?**  
 Network admins aur IT security wale isko bohot use karte hain. Ye in cheezon ke liye kaam aata hai:  
 - Network ki security check karna.  
 - Penetration testing (hacking ka simulation).  
