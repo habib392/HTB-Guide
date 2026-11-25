@@ -30,7 +30,7 @@ Chhoti chhoti networks (subnets) banao, har ek ke darmiyan **ACLs (Access Contro
 
 **Real Life Example 2:** Har network ka map banao, documentation rakho — jaise ghar ke chaaron taraf lights lagana. Sab kuch dikhayi deta hai.
 
-**Real Life Example 3:** IDS (Snort/Suricata) lagao — yeh bushes ki tarah kaam karti hain jo attacker ko scan karne se rokta hai. Agar printer port scan kar raha hai — red alert!
+**Real Life Example 3:** IDS (Snort/Suricata) lagao — yeh bushes ki tarah kaam karti hain jo attacker ko scan karne pr alert bhejta hai network team ko example nmap, brute forcing sy scanning waghaira. Agar printer port scan kar raha hai — red alert!
 
 ### 🚫 Problem:
 
