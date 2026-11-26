@@ -199,3 +199,26 @@ In Simple Explanation
 ✔ Ye hi **non-transparent** hota hai — user ne khud set kiya
 
 ---
+
+### 1. Forward Proxy Aur IP Address Wali Baat (Important Correction)
+ * Tumne likha ke proxy lagane se tumhara IP hide ho jata hai aur shayad naya **private** IP mil jata hai.
+ * **Asal baat:** Jab tum kisi **external/remote proxy ya VPN** ke zariye internet par kisi website ko request bhejte ho, to target website ko tumhara asli **Public IP** dikhne ke bajaye us **proxy server ka Public IP** dikhta hai (kyunke request proxy ke through ja rahi hoti hai). Private IP (192.168.x.x ya 10.x.x.x) waise bhi directly public internet par nahi jaati.
+ * Aur jab tum **Burp Suite (127.0.0.1:8080)** apne hi PC par chalate ho, to wo local interception proxy hoti hai—uski wajah se tumhara public IP nahi badalta, balkay tum apne browser aur target website ke darmiyan baith kar traffic dekhte/modify karte ho.
+### 2. School Mein Transparent Proxy: Har PC Par Ya Gateway/Router/Firewall Par?
+ * **Har PC par lagane ki zaroorat nahi:** Transparent proxy ka maqsad hi yahi hota hai ke **har student ke PC mein ja kar manually proxy set na karna pare** (aur student aaraam se browser settings khol kar usay off bhi na kar sake).
+ * **Kahan lagti hai?** Aam taur par network ke **gateway / router / firewall** ya **transparent proxy server** ke raaste mein lagayi jati hai, jahan se saare computers ki internet traffic guzarti hai.
+ * Jab koi student youtube.com ya tiktok.com kholta hai, to traffic us raaste se guzarti hai aur proxy/firewall rule ke mutabiq block ya allow ho jati hai—student ko khud kuch set nahi karna parta. (Haan, kabhi-kabhi HTTPS traffic inspect/block karne ke liye school ke PCs par root certificate install karna parta hai, lekin proxy setting manual nahi hoti).
+### 3. Reverse Proxy Ke 4 Kaam: Bilkul Aasaan Zuban Mein
+Socho aik barri website (jaise OLX ya koi e-commerce site) ke saamne **Reverse Proxy** (jaise Nginx ya Cloudflare) aik **smart receptionist / gatekeeper** ki tarah khara hai.
+ 1. **Load Balancing (Kaam Baantna):**
+   * Maan lo website par aik waqt mein **10,000 log** aa gaye. Aik hi backend server par itna load paray ga to wo slow ya crash ho sakta hai.
+   * **Reverse proxy** un requests ko **Server 1, Server 2, Server 3** mein baant deti hai—jaise barri line mein 3 counters khol kar logon ko baant diya jaye.
+ 2. **Caching (Jawab Mehfuz Rakhna):**
+   * Maan lo 1,000 log rozana aik hi static logo, image, ya CSS file mangte hain.
+   * **Reverse proxy** us file ki aik copy apne paas (**cache**) mein rakh leti hai. Agli baar jab koi wo file mangta hai, to reverse proxy usay **asli backend server tak jaane ke bajaye apne paas se hi jaldi de deti hai**—isse website fast hoti hai aur backend server par bojh kam parta hai.
+ 3. **SSL Termination (HTTPS Ka Bojh Khud Uthana):**
+   * Users ke browser aur website ke darmiyan **HTTPS (encrypted)** connection hota hai. Encrypt aur decrypt karne mein CPU/processing lagti hai.
+   * **Reverse proxy** user se HTTPS connection khud handle/decrypt karti hai (**SSL termination**), aur aage backend servers tak traffic bhejti hai (ya internal secure link se forward karti hai). Isse backend servers ka extra encryption load kam ho jata hai.
+ 4. **Request Filtering (Ajeeb Ya Khatarnak Requests Rokna):**
+   * Reverse proxy (khaas kar jab uske saath WAF ya security rules hon) aane wali HTTP requests ko check karti hai.
+   * Agar koi suspicious payload, bad bot flood, ya obvious attack pattern aata hai to usay **backend server tak pohanchne se pehle hi block** kar sakti hai.
