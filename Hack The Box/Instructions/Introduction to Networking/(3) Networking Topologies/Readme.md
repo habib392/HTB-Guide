@@ -256,4 +256,4 @@ Har topology ka apna **network behavior hota hai**:
  * **Kya Ring mein se B nikal jaye to Daisy Chain ban jati hai?**
    * Agar A — B — C — D ka ring tha aur B darmiyan se nikal/cut jaye, to loop toot kar **A — C — D** ki aik open line/chain ban jati hai!
    * Ab chonkay D aur A ke darmiyan direct ring link toot chuka hai, isliye D se A tak jaane ke liye wapas C se hotay hue A tak aana parega—yeh behavior waqai **open chain / daisy chain** jaisa ho jata hai.
-   * **Lekin aik ahem baat:** Asal network design mein agar aik single break se poora network toot jaye to wo **single point of failure** hota hai (isliye modern networks mein redundant paths/links rakhe jatay hain taake aik cable ya device band hone par bhi raasta bacha rahe).
+   * **Lekin aik ahem baat:** Asal network design mein agar aik single break se poora network toot jaye to wo **single point of failure** hota hai (isliye modern networks mein redundant paths/links rakhe jatay hain taake aik cable ya device band hone par bhi raasta bacha rahe).Yani aik device rakhi jati hai beech main jis sy chain tootny pr bhi data Ring ki tarah hi travel krta hai.
