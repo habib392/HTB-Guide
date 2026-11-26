@@ -20,11 +20,11 @@ Ek security expert ko networking ka basic samajhna bohat zaroori hai. Kyun? Kyun
 
 Ek simple flat network banana asaan hai, lekin yeh sirf operable hota hai — secure nahi.
 
-**Example:** Ghar banaya, sirf ek darwaza lock lagaya — bas! Agar koi chhup ke deewar phandh le, koi nahi dekh paayega.
+**Example:** Ghar banaya, sirf ek darwaza lock lagaya — bas! Agar koi chhup ke deewar phandh le, koi nahi dekh paayega. Jaisy aik company main network hai 200 computers ka or sub apas main connected hai agar aik computer main malware aaya too sub infect hoo jayein gy
 
 ### 🔐 Segmented Network:
 
-Chhoti chhoti networks (subnets) banao, har ek ke darmiyan **ACLs (Access Control Lists)** lagao. Yeh multiple barriers banata hai.
+Chhoti chhoti networks (subnets) banao, har ek ke darmiyan **ACLs (Access Control Lists)** lagao. Yeh multiple barriers banata hai. Or switches main VLANs bhi lgao yani aik switch sy 50 computers connected hai too VLANs lagamy ky baad woh 5 groups main divide hoo skty hain har group main 10 computer for security purpose.
 
 **Real Life Example 1:** Printer network agar server se HTTP pe baat kar raha hai — yeh abnormal hai. ACL se block kar sakte ho.
 
