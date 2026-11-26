@@ -257,3 +257,26 @@ Har topology ka apna **network behavior hota hai**:
    * Agar A — B — C — D ka ring tha aur B darmiyan se nikal/cut jaye, to loop toot kar **A — C — D** ki aik open line/chain ban jati hai!
    * Ab chonkay D aur A ke darmiyan direct ring link toot chuka hai, isliye D se A tak jaane ke liye wapas C se hotay hue A tak aana parega—yeh behavior waqai **open chain / daisy chain** jaisa ho jata hai.
    * **Lekin aik ahem baat:** Asal network design mein agar aik single break se poora network toot jaye to wo **single point of failure** hota hai (isliye modern networks mein redundant paths/links rakhe jatay hain taake aik cable ya device band hone par bhi raasta bacha rahe).Yani aik device rakhi jati hai beech main jis sy chain tootny pr bhi data Ring ki tarah hi travel krta hai.
+
+---
+
+### 1. Bus Topology: Kya PC 1 "Boss" Hota Hai?
+ * **Seedhi Wire / Backbone:** Haan, Bus topology mein aik main cable (**backbone/bus**) hoti hai jiske saath devices (1, 2, 3, 4, 5) juray hotay hain.
+ * **Kya PC 1 "Boss" Hota Hai?** Nahi, PC 1 koi boss nahi hota—har device barabar ka node hota hai (koi central boss/server hona zaroori nahi).
+ * **Data Kaise Jata Hai?**
+   * Jab PC 1 koi data bhejta hai (maslan PC 4 ke liye), to wo signal us shared wire par dono taraf phailta hai.
+   * Beech ke devices (2, 3) us wire par signal dekhte to hain, lekin jab wo destination address (4) check karte hain to samajhte hain ke **"yeh mera data nahi hai"**, aur PC 4 usay accept kar leta hai.
+   * *Isliye* tumhare purane notes mein likha tha ke agar attacker kisi wire ko tap kar le to wo wahan se guzarne wali traffic "sun" (sniff) sakta hai.
+### 2. Mesh Topology: Kya Data Sab Ko Jata Hai Aur Kya Yeh Ring Jaisi Hai?
+Yahan **do bohot ahem farq** hain:
+ * **Data Sab Ko Nahi Jata (Direct Link Hota Hai):**
+   * Mesh topology ki khaas baat yeh hoti hai ke devices ke darmiyan **multiple direct links** hotay hain (maslan A ka direct link B, C, D sab se ho sakta hai).
+   * Agar PC 1 ne PC 4 ko data bhejna hai, to wo **direct PC 4 wale link** se bhej sakta hai—usay zaroorat nahi ke pooray group mein ya har device ke paas data bheje (jab tak ke broadcast ya routing protocol ki koi khaas baat na ho).
+ * **Mesh vs. Ring Mein Farq Kya Hai?**
+   * **Ring** mein devices sirf aik **gol chakkar/loop** mein juray hotay hain (1 → 2 → 3 → 4 → 5 → 1). Agar 1 se 4 jaana ho to aik hi loop ke raaste jana parta hai, aur agar beech ka koi link/node toot jaye to raasta ruk sakta hai.
+   * **Mesh** mein aik gol chakkar nahi hota balkay **jaala (web)** hota hai—har node ke **kai backup raaste** hotay hain. Agar aik cable ya node fail ho bhi jaye to data **doosre direct/alternate raaste** se nikal jata hai. Isliye Mesh **high reliability / redundancy** ke liye mashhoor hai, jabke Ring mein loop hota hai.
+
+Mesh topology mein chonkay **har device (ya zyada tar devices) ke darmiyan direct connections** hotay hain, isliye:
+ * Agar **Computer 1** chahe to **sirf Computer 4** (ya kisi aik specific computer) ko direct link ke zariye data bhej sakta hai—baqi devices ko us specific data ki zaroorat nahi hoti.
+ * Aur agar zaroorat pare (jaise sab ko update/broadcast bhejna ho ya routing/discovery karni ho), to wo **baqi sab computers** ko bhi data bhej sakta hai.
+Yani **destination choose karne ki flexibility** aur **multiple paths (backup routes)**—yehi Mesh topology ki sabse barri taqat hai.
