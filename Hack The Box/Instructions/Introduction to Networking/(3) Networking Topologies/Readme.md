@@ -244,8 +244,16 @@ Har topology ka apna **network behavior hota hai**:
 * Hybrid mein attacker weakest topology dhoond kr attack kr sakta hai.
 * Point to point mein attacker direct device pr attack kr sakta hai.
 
+---
 
-
-
-
-
+### 1. Star vs. Ring: Kya Ring Mein Delay Hota Hai?
+ * **Star Topology:** Yahan har device ka apna direct link central device (switch/router) ke saath hota hai. Jab **B** data bhejta hai to wo central switch/router ke zariye seedha **D** (ya destination) tak jata hai—baqi devices ko be-waja har unicast frame process karne ki zaroorat nahi parti, aur modern switches/routers par forwarding microseconds/milliseconds mein hoti hai (isliye aam taur par koi feelable delay nahi hota).
+ * **Ring Topology:** Yahan central hub/switch nahi hota; devices aik loop/circle mein juray hotay hain. Agar **B** ne **D** ko data bhejna hai to traffic direction ke hisaab se beech ke nodes (**C**, waghera) se guzar kar **D** tak pohanchti hai.
+   * Har node ko data ko aage pass/forward karna parta hai (aur purane Token Ring ya har hop par processing/forwarding ki wajah se **delay** aa sakta hai—bilkul waise hi jaise log circle mein khat aage badhate hain).
+   * *Farq:* Star mein data direct/central point se destination ki taraf jata hai; Ring mein wo loop ke raaste aage barhta hai.
+### 2. Daisy Chain vs. Ring: Kya Ring Toot Kar Daisy Chain Ban Jati Hai?
+ * **Daisy Chain** mein devices aik line/chain mein juray hotay hain (A — B — C — D — E), aur aakhir wala end (E) wapas pehle wale (A) se direct connect **nahi** hota. Isliye agar **E** ko **A** ko data bhejna ho to wo wapas usi line se ulta (D → C → B → A) guzar kar jata hai.
+ * **Kya Ring mein se B nikal jaye to Daisy Chain ban jati hai?**
+   * Agar A — B — C — D ka ring tha aur B darmiyan se nikal/cut jaye, to loop toot kar **A — C — D** ki aik open line/chain ban jati hai!
+   * Ab chonkay D aur A ke darmiyan direct ring link toot chuka hai, isliye D se A tak jaane ke liye wapas C se hotay hue A tak aana parega—yeh behavior waqai **open chain / daisy chain** jaisa ho jata hai.
+   * **Lekin aik ahem baat:** Asal network design mein agar aik single break se poora network toot jaye to wo **single point of failure** hota hai (isliye modern networks mein redundant paths/links rakhe jatay hain taake aik cable ya device band hone par bhi raasta bacha rahe).
