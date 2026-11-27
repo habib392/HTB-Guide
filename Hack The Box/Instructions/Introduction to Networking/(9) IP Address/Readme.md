@@ -217,6 +217,12 @@ Subnet mask dekh ke yeh andaza lag jata hai ke network kitna bara hai, kitne log
    * **Apne system par:** Jab tum apne device ya Kali Linux/Windows mein IP configuration dekhte ho (ip a, ifconfig, ya ipconfig), to wahan IP ke saath subnet mask ya /24 jaisi value di hoti hai.
    * **Pentesting / Scanning mein:** Aksar scope ya target detail mein CIDR diya jata hai (jaise 10.10.10.0/24), ya agar tum kisi network mein ho to apni interface ka subnet mask dekh kar us range ka andaza lagate ho. (CIDR se yeh pata chalta hai ke us subnet mein **kul kitne IP addresses** hain—active hosts to scan karke hi pata chalte hain).
 
+### 2. Mobile Connect Hone Par: Kya ARP Private IP Deta Hai? (Correction)
+ * Yahan thori si ghalti hai: **ARP private IP assign nahi karta**—private IP dene ka kaam **DHCP** (Dynamic Host Configuration Protocol) ka hota hai.
+ * Jab tumhara mobile Wi-Fi se connect hota hai:
+   1. **DHCP** ke zariye router/DHCP server tumhare mobile ko **Private IP** (aur subnet mask, default gateway, DNS) assign karta hai.
+   2. **ARP** ka kaam tab aata hai jab kisi device ko **kisi IP ka MAC address chahiye ho**—maslan router tumhare mobile ke IP ka MAC address ARP ke zariye resolve karta hai taake local network (Layer 2) par frames bhej sake.
+
 ### 3. Sirf IP Address Dekh Kar Subnet Mask / CIDR Kaise Pata Chalta Hai?
  * **Seedhi aur sachhi baat:** **Sirf IP address dekh kar** aaj ke modern networking (**CIDR**) mein 100% yaqeen ke saath exact subnet mask nahi bataya ja sakta—kyunke aik hi IP 192.168.1.10 kisi network mein /24 ho sakta hai aur kisi aur mein /26 ya /28 bhi.
  * **To phir andaza kaise lagate hain?**
