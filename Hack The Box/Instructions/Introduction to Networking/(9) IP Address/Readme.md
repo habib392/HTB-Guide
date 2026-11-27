@@ -211,3 +211,26 @@ Subnet mask dekh ke yeh andaza lag jata hai ke network kitna bara hai, kitne log
 ---
 
 
+### 1. CIDR Kaise Pata Chalta Hai?
+ * **CIDR** darasal **Subnet Mask** likhne ka short tareeqa hota hai (jaise 255.255.255.0 = /24, jisme 24 bits network ke aur 8 bits host ke hotay hain).
+ * **Yeh kahan se milta hai?**
+   * **Apne system par:** Jab tum apne device ya Kali Linux/Windows mein IP configuration dekhte ho (ip a, ifconfig, ya ipconfig), to wahan IP ke saath subnet mask ya /24 jaisi value di hoti hai.
+   * **Pentesting / Scanning mein:** Aksar scope ya target detail mein CIDR diya jata hai (jaise 10.10.10.0/24), ya agar tum kisi network mein ho to apni interface ka subnet mask dekh kar us range ka andaza lagate ho. (CIDR se yeh pata chalta hai ke us subnet mein **kul kitne IP addresses** hain—active hosts to scan karke hi pata chalte hain).
+
+### 3. Sirf IP Address Dekh Kar Subnet Mask / CIDR Kaise Pata Chalta Hai?
+ * **Seedhi aur sachhi baat:** **Sirf IP address dekh kar** aaj ke modern networking (**CIDR**) mein 100% yaqeen ke saath exact subnet mask nahi bataya ja sakta—kyunke aik hi IP 192.168.1.10 kisi network mein /24 ho sakta hai aur kisi aur mein /26 ya /28 bhi.
+ * **To phir andaza kaise lagate hain?**
+   * **Private IPs:** Ghar/chhotay LAN mein aam taur par /24 (255.255.255.0) milta hai, lekin asal mask interface settings ya network info se hi pakka hota hai.
+   * **Public IPs:** Public IP ka exact block/prefix dekhne ke liye **WHOIS / IP lookup / BGP routing info** check ki jati hai (kyunke ISPs/organizations ne apni-apni CIDR blocks allocate karwayi hoti hain).
+### 4. Subnetting Se Network Divide Kaise Hota Hai?
+Socho tumhare paas aik bara block hai **192.168.1.0/24** (256 IPs). Tum isay **do chhote hisson (/25)** mein baantna chahte ho:
+ * **Subnet 1 (192.168.1.0/25):** Total **128 IPs** (192.168.1.0 se 192.168.1.127) — maslan **Staff** ke liye.
+ * **Subnet 2 (192.168.1.128/25):** Total **128 IPs** (192.168.1.128 se 192.168.1.255) — maslan **Guests / Printers** ke liye.
+Is tarah aik barri range ke **host bits** mein se kuch bits borrow/divide kar ke alag-alag chhote subnets ban jatay hain, jinhe alag VLANs ya security rules ke saath manage kiya ja sakta hai.
+### 5. Network Address Aur Broadcast Address Kya Hain?
+Kisi bhi IPv4 subnet mein **do khaas addresses** kisi normal computer/device ko assign nahi kiye jatay:
+ 1. **Network Address (Subnet ki pehli IP — maslan 192.168.1.0):**
+   * Yeh poore **network/subnet ki pehchan (ID)** hota hai (jaise mohallay ka naam). Kisi PC ko yeh IP nahi di jati.
+ 2. **Broadcast Address (Subnet ki aakhri IP — maslan 192.168.1.255):**
+   * Yeh us subnet ke **har active device tak aik saath message bhejne** ke liye hota hai. Kisi single PC ko yeh IP assign nahi hoti.
+Isliye /24 mein kul 256 addresses mein se **1 Network + 1 Broadcast = 2 addresses** nikal kar **254 usable host IPs** bachti hain.
