@@ -239,4 +239,4 @@ Kisi bhi IPv4 subnet mein **do khaas addresses** kisi normal computer/device ko 
    * Yeh poore **network/subnet ki pehchan (ID)** hota hai (jaise mohallay ka naam). Kisi PC ko yeh IP nahi di jati.
  2. **Broadcast Address (Subnet ki aakhri IP — maslan 192.168.1.255):**
    * Yeh us subnet ke **har active device tak aik saath message bhejne** ke liye hota hai. Kisi single PC ko yeh IP assign nahi hoti.
-Isliye /24 mein kul 256 addresses mein se **1 Network + 1 Broadcast = 2 addresses** nikal kar **254 usable host IPs** bachti hain.
+Isliye /24 mein kul 256 addresses mein se **1 Network + 1 Broadcast = 2 addresses** nikal kar **254 usable host IPs** bachti hain. Jab kisi packet ka destination yeh broadcast address ho, to wo us subnet ke har live device tak bheja jata hai (jaise mohallay mein announcement).
